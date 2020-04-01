@@ -17,7 +17,16 @@ public class MinMaxNumber {
 		System.out.println("Minimum is:"+ min);
 		
 		// java8
-		int minm = IntStream.of(numbers).min().getAsInt();
+		int minm = IntStream.of(numbers).min().getAsInt(); // carefull if value is there return otherwise throw as error.
+	     IntStream.of(numbers)
+				   .min()
+				   .ifPresent(m -> System.out.println(m)); 
+	     
+	     // Static method referance
+	     IntStream.of(numbers)
+		   .min()
+		   .ifPresent(System.out::println); 
+		
 		System.out.println("Minimum :"+minm);
 		
 		
