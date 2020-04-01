@@ -1,5 +1,6 @@
 package org.sundar;
 
+import java.util.IntSummaryStatistics;
 import java.util.stream.IntStream;
 
 public class MinMaxNumber {
@@ -21,6 +22,21 @@ public class MinMaxNumber {
 	     IntStream.of(numbers)
 				   .min()
 				   .ifPresent(m -> System.out.println(m)); 
+	     
+	     // instance of keep calling instance again and again to avoid that function call summary statistics
+	    /* IntStream.of(numbers).max().ifPresent(m -> System.out.println("Max :"+m)); 
+	     IntStream.of(numbers).average().ifPresent(m -> System.out.println("Average :"+m)); 
+	      IntStream.of(numbers).count();
+	      IntStream.of(numbers).sum();*/
+	     
+	     //statistics
+	    IntSummaryStatistics statistics = IntStream.of(numbers).summaryStatistics();
+	    System.out.println(statistics.getMin());
+	    System.out.println(statistics.getMax());
+	    System.out.println(statistics.getAverage());
+	    System.out.println(statistics.getCount());
+	    System.out.println(statistics.getSum());
+	    
 	     
 	     // Static method referance
 	     IntStream.of(numbers)
